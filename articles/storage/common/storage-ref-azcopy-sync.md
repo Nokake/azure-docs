@@ -110,13 +110,13 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--block-size-mb`    (float)    Use this block size (specified in MiB) when uploading to Azure Storage or downloading from Azure Storage. Default is automatically calculated based on file size. Decimal fractions are allowed (For example: 0.25). When uploading or downloading, the maximum allowed block size is 0.75 * AZCOPY_BUFFER_GB. To learn more, see [Optimize memory use](storage-use-azcopy-optimize.md#optimize-memory-use).
 
-`--check-md5`    (string)    Specifies how strictly MD5 hashes should be validated when downloading. This option is only available when downloading. Available values include: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (default 'FailIfDifferent'). (default "FailIfDifferent")
+`--check-md5`    (string)    Specifies how strictly MD5 hashes should be validated when downloading. This option is only available when downloading. Available values include: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (default 'FailIfDifferent')
 
 `--cpk-by-name`   (string)    Client provided key by name let clients that make requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data
 
 `--cpk-by-value`    Client provided key by name let clients that make requests against Azure Blob storage an option to provide an encryption key on a per-request basis. Provided key and its hash will be fetched from environment variables
 
-`--delete-destination`    (string)    Defines whether to delete extra files from the destination that aren't present at the source. Could be set to true, false, or prompt. If set to prompt, the user will be asked a question before scheduling files and blobs for deletion. (default 'false'). (default "false")
+`--delete-destination`    (string)    Defines whether to delete extra files from the destination that aren't present at the source. Could be set to true, false, or prompt. If set to prompt, the user will be asked a question before scheduling files and blobs for deletion. (default 'false')
 
 `--dry-run`    Prints the path of files that would be copied or removed by the sync command. This flag doesn't copy or remove the actual files.
 
@@ -140,7 +140,7 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--include-regex`    (string)    Include the relative path of the files that match with the regular expressions. Separate regular expressions with ';'.
 
-`--log-level`    (string)    Define the log verbosity for the log file, available levels: INFO(all requests and responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default INFO). (default "INFO")
+`--log-level`    (string)    Define the log verbosity for the log file, available levels: DEGUB(vebose output of all requests and responses), INFO(all requests and responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default INFO)
 
 `--mirror-mode`    Disable last-modified-time based comparison and overwrites the conflicting files and blobs at the destination if this flag is set to true. Default is false
 
@@ -148,13 +148,13 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--preserve-permissions`    False by default. Preserves ACLs between aware resources (Windows and Azure Files, or ADLS Gen 2 to ADLS Gen 2). For Hierarchical Namespace accounts, you'll need a container SAS or OAuth token with Modify Ownership and Modify Permissions permissions. For downloads, you'll also need the `--backup` flag to restore permissions where the new Owner won't be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern).
 
-`--preserve-smb-info`    For SMB-aware locations, flag will be set to true by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Azure Files). This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that isn't preserved for folders.  (default true)
+`--preserve-smb-info`    For SMB-aware locations, flag will be set to true by default. Preserves SMB property info (last write time, creation time, attribute bits) between SMB-aware resources (Azure Files). This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern). The info transferred for folders is the same as that for files, except for Last Write Time that isn't preserved for folders.  (default 'true')
 
 `--put-md5`    Create an MD5 hash of each file, and save the hash as the Content-MD5 property of the destination blob or file. (By default the hash is NOT created.) Only available when uploading.
 
-`--recursive`    True by default, look into subdirectories recursively when syncing between directories. (default true). (default true)
+`--recursive`    True by default, look into subdirectories recursively when syncing between directories. (default 'true')
 
-`--s2s-preserve-access-tier`    Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier isn't supported, please use `s2sPreserveAccessTier=false` to bypass copying access tier. (default true).  (default true)
+`--s2s-preserve-access-tier`    Preserve access tier during service to service copy. Refer to [Azure Blob storage: hot, cool, and archive access tiers](../blobs/storage-blob-storage-tiers.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier isn't supported, please use `s2sPreserveAccessTier=false` to bypass copying access tier. (default 'true')
 
 `--s2s-preserve-blob-tags`    Preserve index tags during service to service sync from one blob storage to another
 
@@ -162,7 +162,7 @@ Note: if include and exclude flags are used together, only files matching the in
 
 `--cap-mbps`    (float)    Caps the transfer rate, in megabits per second. Moment-by-moment throughput might vary slightly from the cap. If this option is set to zero, or it's omitted, the throughput isn't capped.
 
-`--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
+`--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default 'text')
 
 `--trusted-microsoft-suffixes`    (string)    Specifies other domain suffixes where Microsoft Entra login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
 
